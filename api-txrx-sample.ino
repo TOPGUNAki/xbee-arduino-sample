@@ -75,6 +75,7 @@ void loop() {
     sum &= 0xff;
     sum = 0xff - sum;
     if(sum == buf[3+len]){
+      sendMsg(TGTADDR,&buf[15],len-12);
       for(cnt=15;cnt<3+len;cnt++){
         Serial.write(buf[cnt]);
       }
